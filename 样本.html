@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城阳小雅</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .original-image {
+            margin-top: 40px;
+        }
+        .original-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0;
+            display: block;
+            margin: 10px auto;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        /* 全屏样式 */
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; /* 100% 视口宽度 */
+            height: 100vh; /* 100% 视口高度 */
+            object-fit: contain; /* 保持图片比例 */
+            background-color: rgba(0, 0, 0, 0.9); /* 背景黑色半透明 */
+            z-index: 1000; /* 确保图片在最上层 */
+            cursor: zoom-out; /* 缩小光标 */
+            margin: 0; /* 移除默认 margin */
+            padding: 0; /* 移除默认 padding */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>城阳小雅</h1>
+        <img src="https://s2.loli.net/2025/02/20/ZF6evoK9iyxaGsg.jpg" alt="个人照片">
+        <div class="info">
+            <p>身高: 160</p>
+            <p>体重: 90</p>
+            <p>🐻: B</p>		
+            <p>年龄: 30</p>
+            <p>5张起 🐻推 漫游 指划 口爆 69都🉑</p>
+        </div>
+        <!-- 添加原始尺寸图片 -->
+        <div class="original-image">
+            <img src="https://s2.loli.net/2025/02/20/ZF6evoK9iyxaGsg.jpg" alt="原始尺寸图片" onclick="toggleFullscreen(this)">
+			<img src="https://s2.loli.net/2025/02/20/62qHC8ak4buO7UM.jpg" alt="原始尺寸图片" onclick="toggleFullscreen(this)">			
+			<img src="https://s2.loli.net/2025/02/20/txcZJ3AyWSam5kw.jpg" alt="原始尺寸图片" onclick="toggleFullscreen(this)">			
+        </div>
+    </div>
+
+    <script>
+        // JavaScript函数用于切换全屏显示
+        function toggleFullscreen(img) {
+            if (img.classList.contains('fullscreen')) {
+                // 如果已经是全屏，则恢复原始大小
+                img.classList.remove('fullscreen');
+            } else {
+                // 否则设置为全屏
+                img.classList.add('fullscreen');
+            }
+        }
+
+        // 点击全屏图片时恢复原始大小
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('fullscreen')) {
+                event.target.classList.remove('fullscreen');
+            }
+        });
+    </script>
+</body>
+</html>
