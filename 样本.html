@@ -15,7 +15,6 @@
             height: 150px;
             border-radius: 50%;
             margin-top: 20px;
-            cursor: pointer; /* 添加手型光标 */
         }
         .info {
             margin-top: 20px;
@@ -30,8 +29,6 @@
             border-radius: 0; /* 取消圆角 */
             display: block; /* 使图片独占一行 */
             margin: 10px auto; /* 居中显示 */
-            cursor: pointer; /* 添加手型光标 */
-            transition: transform 0.3s ease; /* 添加平滑过渡效果 */
         }
 
         /* 添加媒体查询以适应手机尺寸 */
@@ -39,20 +36,8 @@
             .original-image img {
                 width: 100%; /* 在手机屏幕上，图片宽度占满整个屏幕 */
                 height: auto; /* 高度自适应 */
+                margin: 0 auto; /* 移除上下边距，确保图片全屏显示 */
             }
-        }
-
-        /* 定义全屏样式 */
-        .fullscreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain; /* 保持图片比例，避免拉伸 */
-            background-color: rgba(0, 0, 0, 0.9); /* 背景黑色半透明 */
-            z-index: 1000; /* 确保图片在最上层 */
-            cursor: zoom-out; /* 缩小光标 */
         }
     </style>
 </head>
@@ -61,29 +46,18 @@
         <h1>城阳小雅</h1>
         <img src="https://s2.loli.net/2025/02/20/ZF6evoK9iyxaGsg.jpg" alt="个人照片">
         <div class="info">
-            <p>身高: 162</p>
-            <p>体重: 125</p>
-            <p>🐻: D</p>		
-            <p>年龄: 30</p>
-            <p>5起  🐻推  口爆  69都🉑活好不粘人🥰</p>
+            <p>身高: 160</p>
+            <p>体重: 90</p>
+            <p>🐻: B</p>		
+            <p>年龄: 25</p>
+            <p>5张起 🐻推 漫游 指划 口爆 69都🉑</p>
         </div>
         <!-- 添加原始尺寸图片 -->
         <div class="original-image">
-            <img src="https://s2.loli.net/2025/02/20/ZF6evoK9iyxaGsg.jpg" alt="原始尺寸图片" onclick="toggleFullscreen(this)">
+            <img src="https://s2.loli.net/2025/02/20/ZF6evoK9iyxaGsg.jpg" alt="原始尺寸图片">
+            <img src="https://s2.loli.net/2025/02/20/62qHC8ak4buO7UM.jpg" alt="原始尺寸图片">
+            <img src="https://s2.loli.net/2025/02/20/txcZJ3AyWSam5kw.jpg" alt="原始尺寸图片">						
         </div>
     </div>
-
-    <script>
-        // JavaScript函数用于切换全屏显示
-        function toggleFullscreen(img) {
-            if (img.classList.contains('fullscreen')) {
-                // 如果已经是全屏，则恢复原始大小
-                img.classList.remove('fullscreen');
-            } else {
-                // 否则设置为全屏
-                img.classList.add('fullscreen');
-            }
-        }
-    </script>
 </body>
 </html>
