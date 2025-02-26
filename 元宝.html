@@ -89,18 +89,27 @@
             display: none;
         }
 
+        /* 返回按钮样式，与查看详情按钮一致 */
         .back-button {
             display: none;
             position: fixed;
             top: 20px;
             left: 20px;
-            padding: 8px 16px;
-            background-color: #6c757d;
+            width: 160px;
+            padding: 12px 24px;
+            background-color: #007bff;
             color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
             z-index: 1000;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3; /* 悬停效果与查看详情按钮一致 */
         }
     </style>
 </head>
