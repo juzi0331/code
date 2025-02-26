@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            padding: 20px;
+            margin-top: 20vh;
+        }
+
+        .avatar-wrapper {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 3px solid white;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+        }
+
+        .button {
+            display: block;
+            width: 160px;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 新增全屏预览样式 */
+        .fullscreen-mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .preview-image {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #contentFrame {
+            width: 100%;
+            height: calc(100vh - 100px);
+            border: none;
+            display: none;
+        }
+
+        .back-button {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 8px 16px;
+            background-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 第一个头像和按钮 -->
+        <div class="avatar-wrapper">
+            <img src="https://s2.loli.net/2025/02/20/r9AbGwLqKdNpDkI.jpg" 
+                 alt="小7头像" 
+                 class="avatar"
+                 onclick="togglePreview('https://s2.loli.net/2025/02/20/r9AbGwLqKdNpDkI.jpg')">
+            <button class="button" onclick="loadContent('小7.html')">查看详情</button>
+        </div>
+
+        <!-- 第二个头像和按钮 -->
+        <div class="avatar-wrapper">
+            <img src="https://s2.loli.net/2025/02/20/I4XfgRhz1jkBM8i.jpg" 
+                 alt="楠楠头像" 
+                 class="avatar"
+                 onclick="togglePreview('https://s2.loli.net/2025/02/20/I4XfgRhz1jkBM8i.jpg')">
+            <button class="button" onclick="loadContent('楠楠.html')">查看详情</button>
+        </div>
+
+        <iframe id="contentFrame" title="内容页面"></iframe>
+    </div>
+    
+    <!-- 头像大图 -->
+    <div class="fullscreen-mask" onclick="togglePreview()">
+	<!-- 小7头像大图 -->
+        <img src="https://s2.loli.net/2025/02/20/r9AbGwLqKdNpDkI.jpg" 
+             class="preview-image"
+             onclick="event.stopPropagation()"
+    </div>
+    <button class="button back-button" onclick="goBack()">返回</button>
+
+    <script>
+        // 原有功能保持不变
+        function loadContent(page) {
+            document.querySelectorAll('.avatar-wrapper').forEach(wrapper => {
+                wrapper.style.display = 'none';
+            });
+            document.getElementById('contentFrame').style.display = 'block';
+            document.querySelector('.back-button').style.display = 'block';
+            document.getElementById('contentFrame').src = page;
+        }
+
+        function goBack() {
+            document.querySelectorAll('.avatar-wrapper').forEach(wrapper => {
+                wrapper.style.display = 'block';
+            });
+            document.getElementById('contentFrame').style.display = 'none';
+            document.querySelector('.back-button').style.display = 'none';
+            document.getElementById('contentFrame').src = '';
+        }
+
+        // 新增预览功能
+        function togglePreview(imageSrc) {
+            const mask = document.querySelector('.fullscreen-mask');
+            const previewImage = document.querySelector('.preview-image');
+            if (imageSrc) {
+                previewImage.src = imageSrc;
+            }
+            mask.style.display = mask.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>城阳小7</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .original-image {
+            margin-top: 40px;
+        }
+        .original-image img {
+            max-width: 100%; /* 图片最大宽度为父容器的100% */
+            height: auto; /* 高度自适应 */
+            border-radius: 0; /* 取消圆角 */
+            display: block; /* 使图片独占一行 */
+            margin: 10px auto; /* 居中显示 */
+        }
+
+        /* 添加媒体查询以适应手机尺寸 */
+        @media (max-width: 600px) {
+            .original-image img {
+                width: 100%; /* 在手机屏幕上，图片宽度占满整个屏幕 */
+                height: auto; /* 高度自适应 */
+                margin: 0 auto; /* 移除上下边距，确保图片全屏显示 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>城阳小7</h1>
+        <img src="https://s2.loli.net/2025/02/20/r9AbGwLqKdNpDkI.jpg"" alt="个人照片">
+        <div class="info">
+            <p>身高: 165</p>
+            <p>体重: 100</p>
+            <p>🐻: C</p>		
+            <p>年龄: 23</p>
+            <p>8张起 不包✌🏻不口爆 不69 刚毕业大学生.新人待开发😍</p>
+        </div>
+        <!-- 添加原始尺寸图片 -->
+        <div class="original-image">
+            <img src="https://s2.loli.net/2025/02/20/r9AbGwLqKdNpDkI.jpg" alt="原始尺寸图片">
+            <img src="https://s2.loli.net/2025/02/20/OyBNcsiHXeYrwLQ.jpg" alt="原始尺寸图片">				
+        </div>
+    </div>
+</body>
+</html>
