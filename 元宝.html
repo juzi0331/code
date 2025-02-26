@@ -96,6 +96,11 @@
             left: 20px;
             padding: 8px 16px;
             background-color: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
         }
     </style>
 </head>
@@ -124,10 +129,9 @@
     
     <!-- 头像大图 -->
     <div class="fullscreen-mask" onclick="togglePreview()">
-	<!-- 小7头像大图 -->
         <img src="https://s2.loli.net/2025/02/20/r9AbGwLqKdNpDkI.jpg" 
              class="preview-image"
-             onclick="event.stopPropagation()"
+             onclick="event.stopPropagation()">
     </div>
     <button class="button back-button" onclick="goBack()">返回</button>
 
